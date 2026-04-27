@@ -7,7 +7,7 @@ export type QueryParams = Record<string, QueryValue>;
 
 export interface RequestOptions {
   method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-  params?: QueryParams;
+  params?: Record<string, QueryValue> | object;
   body?: unknown;
   formData?: FormData;
   headers?: Record<string, string>;
@@ -36,7 +36,7 @@ export function setTokenProvider(fn: () => string | null) {
   tokenProvider = fn;
 }
 
-function buildUrl(path: string, params?: QueryParams): string {
+function buildUrl(path: string, params?: Record<string, unknown>): string {
   const base = BASE_URL.endsWith("/") ? BASE_URL.slice(0, -1) : BASE_URL;
   const suffix = path.startsWith("/") ? path : `/${path}`;
   const url = new URL(`${base}${suffix}`, typeof window !== "undefined" ? window.location.origin : "http://localhost");
@@ -64,7 +64,7 @@ export async function request<T>(path: string, options: RequestOptions = {}): Pr
     payload = JSON.stringify(body);
   }
 
-  const res = await fetch(buildUrl(path, params), {
+  const res = await fetch(buildUrl(path, params as Record<string, unknown> | undefined), {
     method,
     headers: finalHeaders,
     body: payload,
