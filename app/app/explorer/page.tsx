@@ -17,6 +17,12 @@ import {
   Surface,
   Tag,
 } from "@/components/features/app/page-primitives"
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupInput,
+} from "@/components/ui/input-group"
+import { Button } from "@/components/ui/button"
 
 const categories = [
   "Plumbing",
@@ -73,21 +79,20 @@ export default function ExplorerPage() {
               description="The user specifies what they need, where they are, and what kind of service they want."
             />
             <div className="grid gap-3 md:grid-cols-[1.4fr_1fr_auto]">
-              <div className="flex items-center gap-3 rounded-2xl border border-border bg-background px-4 py-3">
-                <Search className="size-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">
-                  Example: leak under the sink, home massage, screen repair
-                </span>
-              </div>
-              <div className="flex items-center gap-3 rounded-2xl border border-border bg-background px-4 py-3">
-                <MapPin className="size-4 text-muted-foreground" />
-                <span className="text-sm text-muted-foreground">
-                  Neighborhood or district
-                </span>
-              </div>
-              <button className="rounded-2xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
-                Search
-              </button>
+              <InputGroup>
+                <InputGroupAddon>
+                  <Search className="size-4 text-muted-foreground" />
+                </InputGroupAddon>
+                <InputGroupInput placeholder="What do you need?" />
+              </InputGroup>
+              <InputGroup>
+                <InputGroupAddon>
+                  <MapPin className="size-4 text-muted-foreground" />
+                </InputGroupAddon>
+                <InputGroupInput placeholder="Where are you?" />
+              </InputGroup>
+
+              <Button className="">Search</Button>
             </div>
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
@@ -101,16 +106,6 @@ export default function ExplorerPage() {
               label="Visible providers"
               value="128"
               hint="This block will later show the number of profiles available around the user."
-            />
-            <MiniStat
-              label="Primary ranking"
-              value="Distance + rating"
-              hint="Results are meant to surface nearby and reliable providers."
-            />
-            <MiniStat
-              label="Expected action"
-              value="Compare then send"
-              hint="The user reviews a profile and then sends a request to one or more providers."
             />
           </Surface>
         </div>
@@ -134,7 +129,7 @@ export default function ExplorerPage() {
             </div>
           </Surface>
 
-          <Surface className="space-y-5">
+          {/* <Surface className="space-y-5">
             <SectionTitle
               title="What the user can do here"
               description="The explore screen should quickly lead to a concrete action."
@@ -155,7 +150,7 @@ export default function ExplorerPage() {
                 </p>
               </div>
             </div>
-            <div className="rounded-2xl border border-dashed border-border px-4 py-4 text-sm text-muted-foreground">
+            <div className="rounded-lg border border-dashed border-border px-4 py-4 text-sm text-muted-foreground">
               Planned area for advanced filters: estimated price, response time,
               verification, and travel type.
             </div>
@@ -163,41 +158,8 @@ export default function ExplorerPage() {
               <SlidersHorizontal className="size-4" />
               Open filters
             </button>
-          </Surface>
+          </Surface> */}
         </div>
-
-        <Surface className="grid gap-6 lg:grid-cols-3">
-          <div className="space-y-2">
-            <p className="text-xs tracking-[0.22em] text-muted-foreground uppercase">
-              Step 1
-            </p>
-            <h3 className="text-lg font-semibold">Identify the service</h3>
-            <p className="text-sm leading-6 text-muted-foreground">
-              The user describes the need and immediately sees how the platform
-              will guide the search.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <p className="text-xs tracking-[0.22em] text-muted-foreground uppercase">
-              Step 2
-            </p>
-            <h3 className="text-lg font-semibold">Compare profiles</h3>
-            <p className="text-sm leading-6 text-muted-foreground">
-              Key information stays visible: area, rating, specialty, estimated
-              price, and response speed.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <p className="text-xs tracking-[0.22em] text-muted-foreground uppercase">
-              Step 3
-            </p>
-            <h3 className="text-lg font-semibold">Start a request</h3>
-            <p className="text-sm leading-6 text-muted-foreground">
-              Once the right profile is found, the user moves to the requests
-              page to send the need.
-            </p>
-          </div>
-        </Surface>
       </PageBody>
     </div>
   )

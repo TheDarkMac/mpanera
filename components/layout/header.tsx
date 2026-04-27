@@ -6,7 +6,7 @@ import { SidebarTrigger } from "../ui/sidebar"
 
 export const Header = () => {
   return (
-    <header className="flex h-16 items-center justify-between gap-4 border-b bg-background/90 px-4 backdrop-blur-sm">
+    <header className="sticky top-0 right-0 flex h-16 items-center justify-between gap-4 border-b bg-background/90 px-4 backdrop-blur-sm">
       <div className="flex items-center gap-4">
         <SidebarTrigger />
         <div className="md:hidden">

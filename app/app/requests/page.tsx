@@ -16,6 +16,8 @@ import {
   Surface,
   Tag,
 } from "@/components/features/app/page-primitives"
+import { Button } from "@/components/ui/button"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const requests = [
   {
@@ -32,13 +34,6 @@ const requests = [
     state: "Replies received",
     icon: Send,
   },
-  {
-    title: "TV screen repair",
-    description:
-      "One proposal accepted, and the next step leads to direct contact.",
-    state: "Accepted",
-    icon: CheckCircle2,
-  },
 ]
 
 export default function RequestsPage() {
@@ -51,9 +46,6 @@ export default function RequestsPage() {
         actions={
           <>
             <ActionLink href="/app/explorer">Back to explore</ActionLink>
-            <ActionLink href="/app/messages" tone="primary">
-              Open messages
-            </ActionLink>
           </>
         }
       />
@@ -66,28 +58,61 @@ export default function RequestsPage() {
                 title="Active requests"
                 description="The rows below illustrate the states a user can encounter."
               />
-              <button className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
+              <Button className="">
                 <Plus className="size-4" />
                 New request
-              </button>
+              </Button>
             </div>
             <div className="flex flex-wrap gap-2">
-              <Tag>All</Tag>
-              <Tag>Pending</Tag>
-              <Tag>Replies received</Tag>
-              <Tag>Accepted</Tag>
-              <Tag>Closed</Tag>
-            </div>
-            <div className="space-y-3">
-              {requests.map((request) => (
-                <ListRow
-                  key={request.title}
-                  icon={request.icon}
-                  title={request.title}
-                  description={request.description}
-                  meta={<Tag>{request.state}</Tag>}
-                />
-              ))}
+              <Tabs defaultValue="all" className="w-full">
+                <TabsList className="mb-2" variant="line">
+                  <TabsTrigger value="all">All</TabsTrigger>
+                  <TabsTrigger value="pending">Pending</TabsTrigger>
+                  <TabsTrigger value="received">Replies received</TabsTrigger>
+                  <TabsTrigger value="accepted">Accepted</TabsTrigger>
+                  <TabsTrigger value="closed">Closed</TabsTrigger>
+                </TabsList>
+                <TabsContent className="space-y-3" value="all">
+                  {requests.map((request) => (
+                    <ListRow
+                      key={request.title}
+                      icon={request.icon}
+                      title={request.title}
+                      description={request.description}
+                      meta={<Tag>{request.state}</Tag>}
+                    />
+                  ))}
+                </TabsContent>
+                <TabsContent className="space-y-3" value="pending">
+                  {requests.map((request) => (
+                    <ListRow
+                      key={request.title}
+                      icon={request.icon}
+                      title={request.title}
+                      description={request.description}
+                      meta={<Tag>{request.state}</Tag>}
+                    />
+                  ))}
+                </TabsContent>
+                <TabsContent className="space-y-3" value="received">
+                  {requests.map((request) => (
+                    <ListRow
+                      key={request.title}
+                      icon={request.icon}
+                      title={request.title}
+                      description={request.description}
+                      meta={<Tag>{request.state}</Tag>}
+                    />
+                  ))}
+                </TabsContent>
+                <TabsContent className="space-y-3" value="accepted">
+                  No accepted
+                </TabsContent>
+                <TabsContent className="space-y-3" value="closed">
+                  No content yet, but this tab will show requests that have been
+                  declined or resolved.
+                </TabsContent>
+              </Tabs>
             </div>
           </Surface>
 
@@ -97,21 +122,21 @@ export default function RequestsPage() {
               description="The detail panel explains what the platform should reveal at each step."
             />
             <div className="space-y-4">
-              <div className="rounded-2xl border border-border/70 px-4 py-4">
+              <div className="rounded-lg border border-border/70 px-4 py-4">
                 <p className="font-medium">1. Creation</p>
                 <p className="mt-1 text-sm leading-6 text-muted-foreground">
                   The user describes the need, location, urgency, and any useful
                   details.
                 </p>
               </div>
-              <div className="rounded-2xl border border-border/70 px-4 py-4">
+              <div className="rounded-lg border border-border/70 px-4 py-4">
                 <p className="font-medium">2. Dispatch</p>
                 <p className="mt-1 text-sm leading-6 text-muted-foreground">
                   The request is sent to one or more providers selected from the
                   explore page.
                 </p>
               </div>
-              <div className="rounded-2xl border border-border/70 px-4 py-4">
+              <div className="rounded-lg border border-border/70 px-4 py-4">
                 <p className="font-medium">3. Decision</p>
                 <p className="mt-1 text-sm leading-6 text-muted-foreground">
                   The user compares replies, accepts one proposal, or reopens

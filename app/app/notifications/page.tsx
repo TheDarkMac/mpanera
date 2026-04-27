@@ -38,39 +38,48 @@ export default function NotificationsPage() {
             </div>
           </div>
           <div className="space-y-3">
-            <div className="flex items-start gap-4 rounded-2xl border border-border/70 px-4 py-4">
+            <div className="flex items-start gap-4 rounded-lg border border-border/70 px-4 py-4">
               <Bell className="mt-1 size-4 text-primary" />
               <div className="space-y-1">
-                <p className="font-medium">New reply to your plumbing request</p>
+                <p className="font-medium">
+                  New reply to your plumbing request
+                </p>
                 <p className="text-sm leading-6 text-muted-foreground">
-                  A provider confirmed availability. The expected action is to open the request and compare.
+                  A provider confirmed availability. The expected action is to
+                  open the request and compare.
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-4 rounded-2xl border border-border/70 px-4 py-4">
+            <div className="flex items-start gap-4 rounded-lg border border-border/70 px-4 py-4">
               <MessageSquareMore className="mt-1 size-4 text-primary" />
               <div className="space-y-1">
-                <p className="font-medium">Unread message in an active conversation</p>
+                <p className="font-medium">
+                  Unread message in an active conversation
+                </p>
                 <p className="text-sm leading-6 text-muted-foreground">
-                  The user should be able to jump straight into the related conversation thread.
+                  The user should be able to jump straight into the related
+                  conversation thread.
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-4 rounded-2xl border border-border/70 px-4 py-4">
+            <div className="flex items-start gap-4 rounded-lg border border-border/70 px-4 py-4">
               <CircleCheckBig className="mt-1 size-4 text-primary" />
               <div className="space-y-1">
-                <p className="font-medium">Service completed, review expected</p>
+                <p className="font-medium">
+                  Service completed, review expected
+                </p>
                 <p className="text-sm leading-6 text-muted-foreground">
                   Post-service notification leading to the rating screen.
                 </p>
               </div>
             </div>
-            <div className="flex items-start gap-4 rounded-2xl border border-border/70 px-4 py-4">
+            <div className="flex items-start gap-4 rounded-lg border border-border/70 px-4 py-4">
               <TriangleAlert className="mt-1 size-4 text-primary" />
               <div className="space-y-1">
                 <p className="font-medium">Action expires soon</p>
                 <p className="text-sm leading-6 text-muted-foreground">
-                  Example alert to prevent a request or reply from being left without follow-up.
+                  Example alert to prevent a request or reply from being left
+                  without follow-up.
                 </p>
               </div>
             </div>
@@ -84,7 +93,8 @@ export default function NotificationsPage() {
               description="Each notification should lead to a concrete destination."
             />
             <p className="text-sm leading-6 text-muted-foreground">
-              Open a request, enter a conversation, view a profile, complete a review, or adjust alert preferences.
+              Open a request, enter a conversation, view a profile, complete a
+              review, or adjust alert preferences.
             </p>
           </Surface>
           <Surface className="space-y-3">
@@ -93,7 +103,8 @@ export default function NotificationsPage() {
               description="Planned area for choosing channels and frequency."
             />
             <p className="text-sm leading-6 text-muted-foreground">
-              In-app notifications, email, priority reminders, silent alerts, and followed categories.
+              In-app notifications, email, priority reminders, silent alerts,
+              and followed categories.
             </p>
           </Surface>
         </div>

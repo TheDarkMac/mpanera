@@ -1,4 +1,10 @@
-import { BellRing, Globe, LockKeyhole, MapPinned, UserRound } from "lucide-react"
+import {
+  BellRing,
+  Globe,
+  LockKeyhole,
+  MapPinned,
+  UserRound,
+} from "lucide-react"
 
 import {
   PageBody,
@@ -25,21 +31,23 @@ export default function ParametresPage() {
               description="Information visible in the app and core account options."
             />
             <div className="space-y-3">
-              <div className="flex items-start gap-3 rounded-2xl border border-border/70 px-4 py-4">
+              <div className="flex items-start gap-3 rounded-lg border border-border/70 px-4 py-4">
                 <UserRound className="mt-1 size-4 text-primary" />
                 <div>
                   <p className="font-medium">Name, photo, account type</p>
                   <p className="text-sm leading-6 text-muted-foreground">
-                    Planned block for reviewing and updating the displayed identity.
+                    Planned block for reviewing and updating the displayed
+                    identity.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 rounded-2xl border border-border/70 px-4 py-4">
+              <div className="flex items-start gap-3 rounded-lg border border-border/70 px-4 py-4">
                 <LockKeyhole className="mt-1 size-4 text-primary" />
                 <div>
                   <p className="font-medium">Privacy</p>
                   <p className="text-sm leading-6 text-muted-foreground">
-                    Choose what is shared, what stays private, and how contact details are revealed.
+                    Choose what is shared, what stays private, and how contact
+                    details are revealed.
                   </p>
                 </div>
               </div>
@@ -52,21 +60,23 @@ export default function ParametresPage() {
               description="Settings that shape the rhythm of interactions."
             />
             <div className="space-y-3">
-              <div className="flex items-start gap-3 rounded-2xl border border-border/70 px-4 py-4">
+              <div className="flex items-start gap-3 rounded-lg border border-border/70 px-4 py-4">
                 <BellRing className="mt-1 size-4 text-primary" />
                 <div>
                   <p className="font-medium">Notifications</p>
                   <p className="text-sm leading-6 text-muted-foreground">
-                    Increase or reduce alerts for requests, messages, reviews, and reminders.
+                    Increase or reduce alerts for requests, messages, reviews,
+                    and reminders.
                   </p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 rounded-2xl border border-border/70 px-4 py-4">
+              <div className="flex items-start gap-3 rounded-lg border border-border/70 px-4 py-4">
                 <Globe className="mt-1 size-4 text-primary" />
                 <div>
                   <p className="font-medium">Language and display</p>
                   <p className="text-sm leading-6 text-muted-foreground">
-                    Interface language, time format, and other reading preferences.
+                    Interface language, time format, and other reading
+                    preferences.
                   </p>
                 </div>
               </div>
@@ -81,7 +91,7 @@ export default function ParametresPage() {
               description="Settings that help the platform surface the right profiles and results."
             />
             <div className="grid gap-3 md:grid-cols-2">
-              <div className="rounded-2xl border border-border/70 px-4 py-4">
+              <div className="rounded-lg border border-border/70 px-4 py-4">
                 <div className="flex items-center gap-3">
                   <MapPinned className="size-4 text-primary" />
                   <p className="font-medium">Primary area</p>
@@ -90,13 +100,14 @@ export default function ParametresPage() {
                   Address or reference area used to rank nearby providers.
                 </p>
               </div>
-              <div className="rounded-2xl border border-border/70 px-4 py-4">
+              <div className="rounded-lg border border-border/70 px-4 py-4">
                 <div className="flex items-center gap-3">
                   <Tag>Feed</Tag>
                   <p className="font-medium">Service preferences</p>
                 </div>
                 <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                  Followed categories, recurring needs, and history useful for personalization.
+                  Followed categories, recurring needs, and history useful for
+                  personalization.
                 </p>
               </div>
             </div>
@@ -108,13 +119,13 @@ export default function ParametresPage() {
               description="Area reserved for rare but important operations."
             />
             <div className="space-y-3">
-              <button className="w-full rounded-2xl border border-border px-4 py-3 text-left text-sm font-medium transition-colors hover:bg-accent">
+              <button className="w-full rounded-lg border border-border px-4 py-3 text-left text-sm font-medium transition-colors hover:bg-accent">
                 Export my data
               </button>
-              <button className="w-full rounded-2xl border border-border px-4 py-3 text-left text-sm font-medium transition-colors hover:bg-accent">
+              <button className="w-full rounded-lg border border-border px-4 py-3 text-left text-sm font-medium transition-colors hover:bg-accent">
                 Temporarily deactivate my account
               </button>
-              <button className="w-full rounded-2xl border border-red-200 px-4 py-3 text-left text-sm font-medium text-red-600 transition-colors hover:bg-red-50">
+              <button className="w-full rounded-lg border border-red-200 px-4 py-3 text-left text-sm font-medium text-red-600 transition-colors hover:bg-red-50">
                 Delete my account
               </button>
             </div>

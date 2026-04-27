@@ -70,7 +70,7 @@ export function AppSidebar() {
         >
           <div
             className={cn([
-              "flex size-9 items-center justify-center rounded-2xl",
+              "flex size-9 items-center justify-center rounded-lg",
               isExpanded
                 ? "bg-sidebar-primary text-sidebar-primary-foreground"
                 : "bg-transparent text-sidebar-primary",
@@ -89,7 +89,7 @@ export function AppSidebar() {
         </Link>
 
         {/* {isExpanded ? (
-          <div className="rounded-2xl border border-sidebar-border bg-sidebar-accent/35 p-3">
+          <div className="rounded-lg border border-sidebar-border bg-sidebar-accent/35 p-3">
             <p className="text-xs uppercase tracking-[0.24em] text-sidebar-foreground/55">
               Zone active
             </p>
@@ -185,7 +185,7 @@ export function AppSidebar() {
 
       <SidebarFooter className="p-3">
         {/* {isExpanded ? (
-          <div className="rounded-2xl border border-sidebar-border bg-sidebar-accent/35 p-3">
+          <div className="rounded-lg border border-sidebar-border bg-sidebar-accent/35 p-3">
             <p className="text-xs tracking-[0.24em] text-sidebar-foreground/55 uppercase">
               Statut
             </p>

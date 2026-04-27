@@ -11,12 +11,7 @@ type PageIntroProps = {
   actions?: React.ReactNode
 }
 
-export function PageIntro({
-  eyebrow,
-  title,
-  description,
-  actions,
-}: PageIntroProps) {
+export function PageIntro({ title, actions }: PageIntroProps) {
   return (
     <section className="border-b border-border">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 px-6 py-8 lg:flex-row lg:items-end lg:justify-between">
@@ -24,7 +19,7 @@ export function PageIntro({
           {/* <p className="text-xs font-semibold tracking-[0.22em] text-muted-foreground uppercase">
             {eyebrow}
           </p> */}
-          <h1 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
             {title}
           </h1>
           {/* <p className="max-w-xl text-sm leading-6 text-muted-foreground md:text-base">
@@ -63,7 +58,7 @@ export function Surface({
   return (
     <section
       className={cn(
-        "rounded-3xl border border-border/70 bg-background/80 p-5 transition-colors duration-200 hover:bg-accent/20",
+        "rounded-lg border border-border/70 bg-background/80 p-5 transition-colors duration-200 hover:bg-accent/20",
         className
       )}
     >
@@ -101,7 +96,7 @@ export function MiniStat({
   hint: string
 }) {
   return (
-    <div className="space-y-2 rounded-2xl border border-border/70 bg-muted/20 p-4">
+    <div className="space-y-2 rounded-lg border border-border/70 bg-muted/20 p-4">
       <p className="text-xs tracking-[0.2em] text-muted-foreground uppercase">
         {label}
       </p>
@@ -124,7 +119,6 @@ export function Tag({ children }: { children: React.ReactNode }) {
 export function ActionLink({
   href,
   children,
-  tone = "default",
 }: {
   href: string
   children: React.ReactNode
@@ -133,10 +127,7 @@ export function ActionLink({
   return (
     <Link
       href={href}
-      className={cn([
-        buttonVariants({ variant: "outline" }),
-        "px-4 py-2",
-      ])}
+      className={cn([buttonVariants({ variant: "outline" }), "px-4 py-2"])}
     >
       {children}
     </Link>
@@ -155,9 +146,9 @@ export function ListRow({
   meta?: React.ReactNode
 }) {
   return (
-    <div className="flex items-start justify-between gap-4 rounded-2xl border border-border/70 px-4 py-4 transition-colors hover:bg-muted/20">
+    <div className="flex items-start justify-between gap-4 rounded-lg border border-border/70 px-4 py-4 transition-colors hover:bg-muted/20">
       <div className="flex min-w-0 gap-3">
-        <div className="mt-0.5 rounded-2xl border border-border/70 p-2 text-muted-foreground">
+        <div className="mt-0.5 h-fit rounded-lg border border-border/70 p-2 text-muted-foreground">
           <Icon className="size-4" />
         </div>
         <div className="min-w-0 space-y-1">
