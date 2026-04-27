@@ -32,19 +32,51 @@ Mpanera est une Progressive Web App qui donne un cadre, une visibilité et une r
 
 ## Fonctionnalités (MVP)
 
-**Côté client**
-- Formulaire d'onboarding : "Comment Mpanera peut vous aider aujourd'hui ?"
-- Liste de prestataires triée par note (étoiles) et par distance
-- Envoi d'une demande à un ou plusieurs prestataires
-- Messagerie in-app pour contacter un prestataire directement
-- Formulaire de satisfaction post-prestation + attribution d'une note
-- Feed personnalisé influencé par les recherches et évaluations passées
+### Authentification
 
-**Côté prestataire**
-- Création de profil : compétences, localisation, tarif indicatif
-- Notification de nouvelle demande entrante
-- Acceptation ou refus d'une prestation
-- Tableau de bord des évaluations reçues
+- Connexion et inscription via Google ou Facebook (Clerk)
+- Choix du rôle à la première connexion : client ou prestataire
+- Profil automatiquement créé en base via webhook Clerk
+
+### Onboarding & découverte (client)
+
+- Formulaire d'accueil : "Comment Mpanera peut vous aider aujourd'hui ?" avec choix du type de service
+- Parcours découverte : navigation libre des profils prestataires sans remplir le formulaire
+- Liste de prestataires triée par note (étoiles) et par distance
+
+### Profil prestataire
+
+- Création et édition du profil : nom, compétences, localisation, tarif indicatif, photo
+- Page profil publique visible sans connexion
+- Score de réputation affiché (moyenne des notes reçues)
+
+### Demandes de prestation
+
+- Envoi d'une demande à un ou plusieurs prestataires simultanément
+- Notification push au prestataire à la réception d'une demande
+- Le prestataire accepte ou refuse la demande
+- Si accepté : mise en contact directe via la messagerie
+
+### Messagerie temps réel
+
+- Chat en temps réel entre client et prestataire (WebSocket via Pusher)
+- Messages persistés en base de données (Prisma)
+- Historique de conversation accessible après la prestation
+
+### Évaluation
+
+- Formulaire de satisfaction envoyé au client après la prestation
+- Attribution d'une note en étoiles (1 à 5) au prestataire
+- La note alimente le score de classement du prestataire
+
+### Feed
+
+- Fil personnalisé pour le client basé sur ses recherches et évaluations passées
+- Mise à jour du feed après chaque nouvelle évaluation
+
+---
+
+> **Hors MVP (V2+)** : paiement in-app Mobile Money, badge "prestataire vérifié", statistiques avancées prestataire, algorithme de feed poussé.
 
 ---
 
