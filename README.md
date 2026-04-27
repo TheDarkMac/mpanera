@@ -2,13 +2,13 @@
 
 > **Mpanera** — connecteur de prestataires informels et de leurs futurs clients à Madagascar.
 
-Mpanera est une Progressive Web App qui donne un cadre, une visibilité et une réputation aux acteurs de l'économie informelle de services : le réparateur de télé, le professionnel du massage, le plombier de quartier. N'importe qui ayant un talent peut créer son profil. N'importe qui ayant un besoin peut trouver le bon prestataire, au bon endroit, avec les bonnes notes.
+Mpanera est une Plateforme qui donne un cadre, une visibilité et une réputation aux acteurs de l'économie informelle de services : le réparateur de télé, le professionnel du massage, le plombier de quartier. N'importe qui ayant un talent peut créer son profil. N'importe qui ayant un besoin peut trouver le bon prestataire, au bon endroit, avec les bonnes notes.
 
 ---
 
 ## Pourquoi ce projet ?
 
-95 % de l'emploi à Madagascar est informel *(Banque africaine de développement, 2025)*. Ces travailleurs ont des compétences réelles mais aucun cadre pour les valoriser : pas de visibilité, pas de réputation portable, pas de moyen d'être trouvé en dehors de son quartier. Mpanera est le chaînon manquant.
+95 % de l'emploi à Madagascar est informel et fragmenté *(Banque africaine de développement, 2025)*. Ces travailleurs ont des compétences réelles mais aucun cadre pour les valoriser : pas de visibilité, pas de réputation portable, pas de moyen d'être trouvé en dehors de son quartier. Mpanera est le chaînon manquant.
 
 ---
 
@@ -55,13 +55,8 @@ Mpanera est une Progressive Web App qui donne un cadre, une visibilité et une r
 - Envoi d'une demande à un ou plusieurs prestataires simultanément
 - Notification push au prestataire à la réception d'une demande
 - Le prestataire accepte ou refuse la demande
-- Si accepté : mise en contact directe via la messagerie
+- Si accepté : mise en contact directe via notification 
 
-### Messagerie temps réel
-
-- Chat en temps réel entre client et prestataire (WebSocket via Pusher)
-- Messages persistés en base de données (Prisma)
-- Historique de conversation accessible après la prestation
 
 ### Évaluation
 
@@ -282,28 +277,6 @@ Lors de la première connexion, le webhook Clerk déclenche la création de l'ut
 
 ---
 
-## Messagerie temps réel (WebSocket)
-
-La messagerie utilise Pusher pour les connexions WebSocket persistantes, compatibles avec le déploiement serverless Vercel.
-
-**Architecture :**
-
-```
-Client A (navigateur)                 Client B (navigateur)
-     │                                      │
-     │ 1. envoie un message                 │
-     ▼                                      │
-Next.js API Route                           │
-/api/messages                              │
-     │                                      │
-     │ 2. persiste en BDD (Prisma)          │
-     │ 3. trigger Pusher                    │
-     ▼                                      │
-Pusher Server  ──── 4. push event ────────► │
-                    channel: conversation-{id}   │
-                                           ▼
-                               Client B reçoit le message
-```
 
 **Abonnement côté client :**
 
@@ -336,11 +309,11 @@ Accueil
   ├── [Formulaire de besoin] ──→ Liste prestataires (triée par note + distance)
   │                                   └── Demande envoyée
   │                                         └── Prestataire notifié
-  │                                               ├── Accepte → Mise en contact
+  │                                               ├── Accepte → Mise en contact -> envoi offre (prestataire) -> comparaison prix (client) -> payment frais de contact -> reçoit le contact du prestataire 
   │                                               └── Refuse  → Prochain prestataire
   │                                                               └── Prestation réalisée
   │                                                                     └── Évaluation → Feed mis à jour
-  └── [Parcours découverte] ──→ Profils en navigation libre → Messagerie directe
+  └── [Parcours découverte] ──→ Profils en navigation libre 
 ```
 
 ---
