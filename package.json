@@ -19,14 +19,11 @@
     "@clerk/nextjs": "^7.2.7",
     "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
+    "@prisma/client-runtime-utils": "^7.8.0",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-<<<<<<< HEAD
-    "dotenv": "^17.4.2",
-=======
     "jsonwebtoken": "^9.0.3",
->>>>>>> bb4c543 (feat: add api foundations)
     "lucide-react": "^1.11.0",
     "next": "16.1.7",
     "next-themes": "^0.4.6",
@@ -51,6 +48,7 @@
     "dotenv": "^17.4.2",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.1.7",
+    "magic-string": "^0.30.17",
     "postcss": "^8",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
