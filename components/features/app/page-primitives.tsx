@@ -19,7 +19,7 @@ export function PageIntro({ title, actions }: PageIntroProps) {
           {/* <p className="text-xs font-semibold tracking-[0.22em] text-muted-foreground uppercase">
             {eyebrow}
           </p> */}
-          <h1 className="text-2xl font-semibold tracking-tight text-foreground md:text-4xl">
+          <h1 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
             {title}
           </h1>
           {/* <p className="max-w-xl text-sm leading-6 text-muted-foreground md:text-base">

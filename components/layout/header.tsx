@@ -16,10 +16,10 @@ export const Header = () => {
       </div>
       <div className="flex items-center gap-4">
         <Show when="signed-out">
-          <SignInButton>
+          <SignInButton mode="modal" fallbackRedirectUrl="/app/explorer">
             <Button variant="ghost">Sign In</Button>
           </SignInButton>
-          <SignUpButton>
+          <SignUpButton mode="modal" fallbackRedirectUrl="/app/explorer">
             <Button>Sign Up</Button>
           </SignUpButton>
         </Show>

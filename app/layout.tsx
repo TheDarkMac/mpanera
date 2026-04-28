@@ -2,10 +2,6 @@ import type { Metadata } from "next"
 import { ClerkProvider } from "@clerk/nextjs"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { AppSidebar } from "@/components/layout/app-sidebar"
-import { Header } from "@/components/layout/header"
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
-import { TooltipProvider } from "@/components/ui/tooltip"
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,17 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.variable} h-screen font-inter antialiased`}>
         <ClerkProvider>
-          <TooltipProvider>
-            <SidebarProvider>
-              <AppSidebar />
-              <SidebarInset className="min-h-screen">
-                <Header />
-                <div className="h-[calc(100vh-4rem)] min-h-0 flex-1">
-                  {children}
-                </div>
-              </SidebarInset>
-            </SidebarProvider>
-          </TooltipProvider>
+          {children}
         </ClerkProvider>
       </body>
     </html>
